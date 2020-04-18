@@ -16,5 +16,5 @@
    - 'us-east1'
    - '--platform'
    - 'managed'
- - images:
+ images:
  - 'gcr.io/$PROJECT_ID/default:$COMMIT_SHA'
