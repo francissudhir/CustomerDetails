@@ -17,4 +17,4 @@
    - '--platform'
    - 'managed'
  images:
- - 'gcr.io/$PROJECT_ID/default$COMMIT_SHA'
+ - 'gcr.io/$PROJECT_ID/default:$COMMIT_SHA'
