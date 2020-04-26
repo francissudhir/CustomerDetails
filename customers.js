@@ -12,13 +12,13 @@ module.exports = function(config) {
 
 
   function getCustomers(callback) {
-    var query = datastore.createQuery(['Customers']);
+    const query = datastore.createQuery(['Customers']);
     datastore.runQuery(query, (err, customers) => callback(err, customers, datastore.KEY));
   }
 
   function getCustomer(userId, callback) {
     const key = datastore.key(['Customers', parseInt(userId)]);
-    var query = datastore.createQuery(['Customers']).filter('__key__', '=', key);
+    const query = datastore.createQuery(['Customers']).filter('__key__', '=', key);
     datastore.runQuery(query, (err, customers) => callback(err, customers, datastore.KEY));
   }
 
