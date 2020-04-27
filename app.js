@@ -15,7 +15,7 @@ app.get('/getCustomers', function(req, res, next) {
     keyCustomer.forEach(function(cus){
       getCustomers.push({"CustomerName": cus.CustomerName, "id": cus.id})
     })
-    res.json({ getCustomers, user: req.session.user });
+    res.json(getCustomers);
   });
 });
 
@@ -24,7 +24,7 @@ app.get('/getCustomer/:id', function(req, res, next) {
   customers.getCustomer(req.params.id, function(err, customers, key) {
     if (err) return next(err);
     var getCustomer = customers.map((customer) => Object.assign(customer, { id: customer.id || customer[key].id }));
-    res.json({ getCustomer, user: req.session.user });
+    res.json(getCustomer);
   });
 });
 
