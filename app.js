@@ -1,11 +1,8 @@
 var config = require('./config');
 var customers = require('./customers')(config);
 var express = require('express');
-var session = require('cookie-session')
 var app = express();
 app.enable('trust proxy');
-app.use(session({ signed: true, secret: config.cookieSecret }));
-
 
 app.get('/getCustomers', function(req, res, next) {
   customers.getCustomers(function(err, customers, key) {
