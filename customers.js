@@ -9,16 +9,16 @@ module.exports = function(config) {
   const {Datastore}  = require('@google-cloud/datastore');
   const datastore = new Datastore(data1)
 
-
+  var entityKind = 'Customers'
 
   function getCustomers(callback) {
-    const query = datastore.createQuery(['Customers']);
+    const query = datastore.createQuery([entityKind]);
     datastore.runQuery(query, (err, customers) => callback(err, customers, datastore.KEY));
   }
 
   function getCustomer(userId, callback) {
-    const key = datastore.key(['Customers', parseInt(userId)]);
-    const query = datastore.createQuery(['Customers']).filter('__key__', '=', key);
+    const key = datastore.key([entityKind, parseInt(userId)]);
+    const query = datastore.createQuery([entityKind]).filter('__key__', '=', key);
     datastore.runQuery(query, (err, customers) => callback(err, customers, datastore.KEY));
   }
 

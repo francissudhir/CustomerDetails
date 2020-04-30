@@ -21,7 +21,7 @@ app.get('/getCustomer', function(req, res, next) {
   customers.getCustomer(req.query.id, function(err, customers, key) {
     if (err) return next(err);
     var getCustomer = customers.map((customer) => Object.assign(customer, { id: customer.id || customer[key].id }));
-    res.json([getCustomer]);
+    res.json(getCustomer[0]);
   });
 });
 
